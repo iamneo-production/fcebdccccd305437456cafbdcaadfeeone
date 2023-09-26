@@ -1,1 +1,24 @@
 <p>vote works!</p>
+<div class="container" >
+    <header >
+    <h1>Favorite Food Survey</h1>
+    </header>
+</div>
+<div class="main" id="main">
+    
+<div class="card" *ngFor="let product of products" id="product{{product.id}}">
+    <br>
+    <img class="image" alt="" [src]= "product.img" />
+    <h3>{{product.name}}</h3>
+    Limited No. of Responses 10
+    <p>
+    <button class="button" id="like" (click)="like(product)" [disabled]="totalVotes(product)">Like</button>&nbsp;
+    <button class="button" id="dislike" (click)="dislike(product)" [disabled]="totalVotes(product)">Dislike</button>
+    </p>
+    <div>
+    Number of Likes: <input class="textbox" id="likescount" [(ngModel)]="product.likes" type="text" disabled="true"/><br>
+    Number of DisLikes: <input class="textbox" id="dislikescount" [(ngModel)]="product.dislikes" type="text" disabled="true"/><br>
+    Total number of responces<input class="textbox" id="totalcount" [(ngModel)]="product.likes + product.dislikes" type="text" disabled="true" />
+    </div>
+</div>
+</div>
